@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Zenbot Injection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        -webkit-font-smoothing: antialiased;
+        padding: 1rem;
+        font-family: Avenir, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      /*
+        Copies query params to data attrs of injection script element
+        to allow runtime configuration
+      */
+
+      const $script = document.createElement('script')
+      $script.async = true
+      $script.src = 'inject.js'
+
+      const params = new URLSearchParams(window.location.search)
+
+      for (let [key, val] of params) {
+        // hyphen-case to camelCase
+        key = key.replace(/-([a-z])/g, (_, char) => char.toUpperCase())
+        $script.dataset[key] = val
+      }
+
+      document.body.appendChild($script)
+    </script>
+  </body>
+</html>

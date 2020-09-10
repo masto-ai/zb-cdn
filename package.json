@@ -1,0 +1,5 @@
+{
+  "name": "zenbot",
+  "version": "0.1.0",
+  "main": "./zenbot-ui.min.js"
+}
