@@ -27,7 +27,7 @@
 
     function onVueLoad() {
       var zb = document.createElement('script')
-      zb.src = 'https://cdn.zenbot.ai/zenbot-ui.min.js'
+      zb.src = 'https://raw.githack.com/masto-ai/zb-cdn/dev/zenbot-ui.min.js'
       zb.onload = function () {
         var widget = document.createElement('zenbot-ui')
         widget.setAttribute('bot-id', botId)
